@@ -12,15 +12,19 @@ export default class App extends Component {
   render() {
 
     let rows = []
+    let nuns = [[1,2,3] , [4,5,6] , [7,8,9] , [0, '.', '=']]
+    
     for(let i = 0; i < 4; i++){
       let row = []
       for(let j = 0; j < 3; j++){
         row.push(<TouchableOpacity style={styles.btn}>
-          <Text>{i+1}</Text>
+          <Text style={styles.btnText}>{nuns[i][j]}</Text>
         </TouchableOpacity>)
+        }
+        rows.push(<View style={styles.row}>{row}</View>)
       }
-    rows.push(<View style={styles.row}>{row}</View>)
-    }
+    
+    
     return (
       <View style={styles.container}>
         <View style={styles.result}>
@@ -31,33 +35,8 @@ export default class App extends Component {
         </View>
         <View style={styles.buttons}>
           <View style={styles.numbers}>
-            <View style={styles.row}>
-              <TouchableOpacity style={styles.btn}>
-                <Text>0</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.btn}>
-                <Text>0</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.btn}>
-                <Text>0</Text>
-              </TouchableOpacity>
-              
-            </View>
-            <View style={styles.row}>
-              <Button title ="0" />
-              <Button title ="0" />
-              <Button title ="0" />
-            </View>
-            <View style={styles.row}>
-              <Button title ="0" />
-              <Button title ="0" />
-              <Button title ="0" />
-            </View>
-            <View style={styles.row}>
-              <Button title ="0" />
-              <Button title ="0" />
-              <Button title ="0" />
-            </View>
+            {rows}
+            
           </View>
           <View style={styles.operations}>
             <Button title="+"/>
@@ -87,6 +66,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'stretch',
     justifyContent: 'center',
+    
+  },
+
+  btnText: {
+    fontSize: 35,
   },
 
   calculationText: {
