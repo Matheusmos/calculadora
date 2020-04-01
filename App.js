@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 
 export default class App extends Component {
   
@@ -10,6 +10,17 @@ export default class App extends Component {
   }
 
   render() {
+
+    let rows = []
+    for(let i = 0; i < 4; i++){
+      let row = []
+      for(let j = 0; j < 3; j++){
+        row.push(<TouchableOpacity style={styles.btn}>
+          <Text>{i+1}</Text>
+        </TouchableOpacity>)
+      }
+    rows.push(<View style={styles.row}>{row}</View>)
+    }
     return (
       <View style={styles.container}>
         <View style={styles.result}>
@@ -21,9 +32,16 @@ export default class App extends Component {
         <View style={styles.buttons}>
           <View style={styles.numbers}>
             <View style={styles.row}>
-              <Button title ="0" />
-              <Button title ="0" />
-              <Button title ="0" />
+              <TouchableOpacity style={styles.btn}>
+                <Text>0</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.btn}>
+                <Text>0</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.btn}>
+                <Text>0</Text>
+              </TouchableOpacity>
+              
             </View>
             <View style={styles.row}>
               <Button title ="0" />
@@ -62,6 +80,13 @@ const styles = StyleSheet.create({
   resultText: {
     fontSize: 28,
     color: 'white',
+  },
+
+  btn: {
+    flex: 1,
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    justifyContent: 'center',
   },
 
   calculationText: {
