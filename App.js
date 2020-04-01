@@ -23,6 +23,14 @@ export default class App extends Component {
         }
         rows.push(<View style={styles.row}>{row}</View>)
       }
+
+      let operations = ['+', '-', 'X', '/']
+      let ops = []
+      for(let i = 0; i < 4; i++){
+        ops.push(<TouchableOpacity style={styles.btn}>
+          <Text style={[styles.btnText, styles.white]}>{operations[i]}</Text>
+        </TouchableOpacity>)
+      }
     
     
     return (
@@ -39,10 +47,7 @@ export default class App extends Component {
             
           </View>
           <View style={styles.operations}>
-            <Button title="+"/>
-            <Button title="+"/>
-            <Button title="+"/>
-            <Button title="+"/>
+            {ops}
           </View>
         </View>
 
@@ -116,5 +121,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     justifyContent: 'space-around',
     alignItems: 'stretch',
+  },
+
+  white: {
+    color: 'white'
   },
 });
