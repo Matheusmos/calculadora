@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
 
   calculationText: {
-    fontSize: 24,
+    fontSize: 48,
     color: 'coral',
   },
 
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'flex-end',
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    
   },
   
   buttons: {
