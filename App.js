@@ -31,6 +31,13 @@ export default class App extends Component {
     }
     return true
   }
+  handlebuttonPressed(text){
+    console.log(text)
+    if(text == 'DEL'){
+      return
+    }
+    return this.state.resultText
+  }
 
   buttonPressed(text){
      
@@ -98,6 +105,9 @@ export default class App extends Component {
     
     return (
       <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Calculadora Nubank</Text>
+        </View>
         <View style={styles.result}>
     <Text style={styles.resultText}>{this.state.resultText}</Text>
         </View>
@@ -122,6 +132,18 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+
+  header: {
+    flex: 1.5,
+    backgroundColor: '#7f269d',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  headerText: {
+    fontSize: 30,
+    color: 'white',
   },
 
   resultText: {
@@ -158,10 +180,10 @@ const styles = StyleSheet.create({
 
   result: {
     flex: 2,
-    backgroundColor: '#7f269d',
+    backgroundColor: '#ab50ca',
     justifyContent: 'center',
     alignItems: 'flex-end',
-    /*backgroundColor: '#1e1240'*/
+    /*backgroundColor: '#7f269d'*/
   },
 
   calculation: {
