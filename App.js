@@ -97,7 +97,7 @@ export default class App extends Component {
       
       let ops = []
       for(let i = 0; i <= 4; i++){
-        ops.push(<TouchableOpacity style={styles.btn} onPress={() => this.operate(this.operations[i])}>
+        ops.push(<TouchableOpacity style={styles.btnOP} onPress={() => this.operate(this.operations[i])}>
           <Text style={[styles.btnText, styles.white]}>{this.operations[i]}</Text>
         </TouchableOpacity>)
       }
@@ -156,8 +156,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'stretch',
     justifyContent: 'center',
-    
-    
+    borderColor: '#7f269d',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderWidth: 1,
+  },
+
+  btnOP: {
+    flex: 1,
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    justifyContent: 'center',
   },
 
   btnText: {
@@ -176,6 +184,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
+    borderColor: '#7f269d',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderWidth: 1,
   },
 
   result: {
@@ -197,11 +208,13 @@ const styles = StyleSheet.create({
   buttons: {
     flexGrow: 7,
     flexDirection: 'row',
+    
   },
 
   numbers: {
     flex: 3,
-    backgroundColor: '#ab50ca'
+    backgroundColor: '#ab50ca',
+
   },
 
   operations: {
@@ -209,6 +222,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#7f269d',
     justifyContent: 'space-around',
     alignItems: 'stretch',
+    
   },
 
   white: {
